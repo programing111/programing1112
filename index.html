@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Aplikasi Mobile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #6a0dad, #8a2be2); /* Gradasi ungu */
+            color: #fff; /* Warna teks putih untuk kontras */
+        }
+        header {
+            background-color: #ff0000; /* Warna merah */
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+        header .logo img {
+            height: 40px;
+        }
+        .header-text {
+            font-size: 24px;
+            margin-left: 10px;
+        }
+        .menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #ffffff;
+            color: #000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            padding: 20px;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+            display: block; /* Tampilkan menu sebagai block */
+        }
+        .menu a {
+            display: block;
+            padding: 10px 0;
+            font-size: 18px;
+            color: #000;
+            text-decoration: none;
+        }
+        .menu a:hover {
+            color: #ff0000; /* Ubah warna saat hover */
+        }
+        .hero {
+            position: relative;
+            height: 100vh; /* Mengisi tinggi layar */
+            overflow: hidden;
+            color: #fff;
+        }
+        .hero-slider {
+            display: flex;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: transform 1s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        .features {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f0f4f8;
+            padding: 20px 0;
+            text-align: center;
+            flex-wrap: nowrap;
+        }
+        .feature-item {
+            width: 20%;
+            margin: 0 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-item.pwa-ready {
+            background-color: #6a0dad; /* Warna ungu untuk PWA Ready */
+            color: #fff; /* Warna teks putih untuk kontras */
+        }
+        .feature-item.bootstrap5 {
+            background-color: #8a2be2; /* Warna ungu untuk Bootstrap 5 */
+            color: #fff; /* Warna teks putih untuk kontras */
+        }
+        .feature-item.vanilla-js {
+            background-color: #6a0dad; /* Warna ungu untuk Vanilla JS */
+            color: #fff; /* Warna teks putih untuk kontras */
+        }
+        .feature-item.new-menu {
+            background-color: #6a0dad; /* Sama dengan warna Jadwal */
+            color: #fff; /* Warna teks putih untuk kontras */
+        }
+        .feature-item a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .feature-item a:hover {
+            color: #e0e0e0; /* Menambahkan sedikit efek hover dengan warna putih pudar */
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+        .feature-item img {
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        .feature-item h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .feature-item p {
+            font-size: 14px;
+            color: #e0e0e0;
+        }
+        .cta {
+            background-image: url('https://i.pinimg.com/564x/ae/32/80/ae3280c3781d1b4bfb074342a9d0c71e.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
+            text-align: center;
+            margin: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            color: #fff;
+            position: relative;
+            height: 400px; /* Sesuaikan tinggi sesuai kebutuhan */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .cta::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+        }
+        .cta h2, .cta p, .cta .btn {
+            position: relative;
+            z-index: 1;
+        }
+        .cta h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .cta p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .cta .btn {
+            background-color: #fca311;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+        .cta .btn:hover {
+            background-color: #e69500;
+        }
+        footer {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: transform 0.2s;
+        }
+        footer a:hover {
+            transform: scale(1.2);
+        }
+        @media (max-width: 768px) {
+            .header-text {
+                display: inline-block; /* Tampilkan teks di layar kecil */
+                font-size: 14px; /* Sesuaikan ukuran font untuk layar kecil */
+            }
+            .features {
+                justify-content: space-around;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+            }
+            .feature-item {
+                min-width: 30%;
+                flex-shrink: 0;
+                margin: 0 5px;
+            }
+            .menu {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logoAnnur.png" alt="Logo">
+            <span class="header-text">Informatika AN-Nur</span>
+        </div>
+    </header>
+
+    <div class="menu">
+        <a href="kelas1.html">Kelas 1</a>
+        <a href="kelas2.html">Kelas 2</a>
+        <a href="kelas3.html">Kelas 3</a>
+        <a href="kelas4.html">Kelas 4</a>
+        <a href="kelas5.html">Kelas 5</a>
+        <a href="kelas6.html">Kelas 6</a>
+        <a href="kelas7.html">Kelas 7</a>
+        <a href="kelas8.html">Kelas 8</a>
+        <a href="kelas9.html">Kelas 9</a>
+    </div>
+
+    <section class="hero" id="hero">
+        <div class="hero-slider">
+            <div class="slide" style="background-image: url('https://i.pinimg.com/564x/ae/32/80/ae3280c3781d1b4bfb074342a9d0c71e.jpg');"></div>
+            <div class="slide" style="background-image: url('https://via.placeholder.com/1200x800');"></div>
+            <div class="slide" style="background-image: url('https://via.placeholder.com/1200x800/ff0000/ffffff');"></div>
+            <div class="slide" style="background-image: url('https://via.placeholder.com/1200x800/0000ff/ffffff');"></div>
+            <div class="slide" style="background-image: url('https://via.placeholder.com/1200x800/00ff00/ffffff');"></div>
+            <div class="slide" style="background-image: url('https://via.placeholder.com/1200x800/ffff00/000000');"></div>
+            <div class="slide" style="background-image: url('https://via.placeholder.com/1200x800/ff00ff/ffffff');"></div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature-item pwa-ready">
+            <a href="Menu Materi.html">
+                <img src="pngwing.com (9).png" alt="PWA Ready">
+                <h3>Materi</h3>
+            </a>
+        </div>
+        <div class="feature-item bootstrap5">
+            <a href="latihan soal.html">
+                <img src="Quis.png" alt="Bootstrap 5">
+                <h3>Latihan</h3>
+            </a>
+        </div>
+        <div class="feature-item vanilla-js">
+            <a href="Project.html">
+                <img src="project.png" alt="Vanilla JS">
+                <h3>Project</h3>
+            </a>
+        </div>
+        <div class="feature-item new-menu">
+            <a href="tugas.html">
+                <img src="Tugas.png" alt="Menu Baru">
+                <h3>Tugas</h3>
+            </a>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Tentang Aplikasi</h2>
+        <p>Aplikasi ini pak fauzi buat agar murid pak fauzi bisa belajar online di rumah melalui aplikasi ini</p>
+    </section>
+
+    <footer>
+        <a href="index.html"><i class="fas fa-home"></i></a>
+        <a href="Menu Materi.html"><i class="fas fa-book"></i></a>
+        <a href="tugas.html"><i class="fas fa-calendar-alt"></i></a>
+        <a href="https://wa.me/6285890599794"><i class="fas fa-comments"></i></a> <!-- Ganti nomor WhatsApp sesuai kebutuhan -->
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            const slider = document.querySelector('.hero-slider');
+            slider.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            showSlide(currentIndex);
+        }
+
+        setInterval(nextSlide, 5000); // Pindah slide tiap 5 detik
+    </script>
+</body>
+</html>
