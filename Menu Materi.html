@@ -47,29 +47,43 @@
         .feature-item {
             width: calc(33.33% - 20px);
             margin: 10px;
-            padding: 20px;
+            padding: 0;
             border: 1px solid #ddd;
             border-radius: 5px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
             background-color: #fff;
             color: #333;
+            position: relative;
         }
         .feature-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
         }
         .feature-item img {
-            height: 50px;
-            margin-bottom: 10px;
+            width: 100%; /* Gambar penuh sesuai lebar kontainer */
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
         }
-        .feature-item h3 {
+        .feature-item button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px 20px;
+            background-color: orange;
+            color: white;
+            border: none;
+            border-radius: 5px;
             font-size: 16px;
-            margin-bottom: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
-        .feature-item p {
-            font-size: 14px;
-            color: #666;
+        .feature-item button:hover {
+            background-color: #ff6600;
+        }
+        .feature-item button:active {
+            background-color: #e65c00;
         }
         footer {
             background-color: #007bff;
@@ -109,6 +123,9 @@
                 width: 100%;
             }
         }
+        audio {
+            display: none; /* Sembunyikan elemen audio */
+        }
     </style>
 </head>
 <body>
@@ -121,55 +138,46 @@
 
     <section class="features">
         <div class="feature-item">
-            <a href="menu kelas 4.html">
-                <img src="https://i.pinimg.com/originals/e6/16/9f/e6169fadc3fca4a5c6003ebeeec25f47.jpg" alt="Kelas 4">
-                <h3>Kelas 4</h3>
-                <p>Materi dan kegiatan untuk kelas 4</p>
-            </a>
+            <img src="https://i.pinimg.com/originals/7a/af/87/7aaf879b57168300a9e59c5542fde41e.jpg" alt="Kelas 4">
+            <button onclick="location.href='menu kelas 4.html'">Masuk Kelas 4</button>
         </div>
         <div class="feature-item">
-            <a href="menu kelas 5.html">
-                <img src="img/class5.png" alt="Kelas 5">
-                <h3>Kelas 5</h3>
-                <p>Materi dan kegiatan untuk kelas 5</p>
-            </a>
+            <img src="img/class5.png" alt="Kelas 5">
+            <button onclick="location.href='menu kelas 5.html'">Masuk Kelas 5</button>
         </div>
         <div class="feature-item">
-            <a href="menu kelas 6.html">
-                <img src="img/class6.png" alt="Kelas 6">
-                <h3>Kelas 6</h3>
-                <p>Materi dan kegiatan untuk kelas 6</p>
-            </a>
+            <img src="img/class6.png" alt="Kelas 6">
+            <button onclick="location.href='menu kelas 6.html'">Masuk Kelas 6</button>
         </div>
         <div class="feature-item">
-            <a href="menu kelas 7.html">
-                <img src="img/class7.png" alt="Kelas 7">
-                <h3>Kelas 7</h3>
-                <p>Materi dan kegiatan untuk kelas 7</p>
-            </a>
+            <img src="img/class7.png" alt="Kelas 7">
+            <button onclick="location.href='menu kelas 7.html'">Masuk Kelas 7</button>
         </div>
         <div class="feature-item">
-            <a href="menu kelas 8.html">
-                <img src="img/class8.png" alt="Kelas 8">
-                <h3>Kelas 8</h3>
-                <p>Materi dan kegiatan untuk kelas 8</p>
-            </a>
+            <img src="img/class8.png" alt="Kelas 8">
+            <button onclick="location.href='menu kelas 8.html'">Masuk Kelas 8</button>
         </div>
         <div class="feature-item">
-            <a href="menu kelas 9.html">
-                <img src="img/class9.png" alt="Kelas 9">
-                <h3>Kelas 9</h3>
-                <p>Materi dan kegiatan untuk kelas 9</p>
-            </a>
+            <img src="img/class9.png" alt="Kelas 9">
+            <button onclick="location.href='menu kelas 9.html'">Masuk Kelas 9</button>
         </div>
     </section>
 
     <footer>
-        <a href="index2.html"><i class="fas fa-home"></i></a>
+        <a href="index.html"><i class="fas fa-home"></i></a>
         <a href="Menu Materi.html"><i class="fas fa-book"></i></a>
         <a href="tugas.html"><i class="fas fa-calendar-alt"></i></a>
         <a href="https://wa.me/6285890599794"><i class="fas fa-comments"></i></a> <!-- Ganti nomor WhatsApp sesuai kebutuhan -->
     </footer>
 
+    <audio autoplay muted id="background-audio">
+        <source src="musik.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        // Aktifkan suara setelah halaman dimuat
+        document.getElementById('background-audio').muted = false;
+    </script>
+    
 </body>
 </html>
