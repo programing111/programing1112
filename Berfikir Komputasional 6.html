@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materi Informatika AN-Nur</title>
+    <title>Landing Page Aplikasi Mobile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
@@ -36,15 +36,42 @@
             font-size: 24px;
             margin-left: 10px;
         }
-        .content {
-            padding: 0; /* Hilangkan padding */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background: linear-gradient(to bottom, #6a0dad, #8a2be2); /* Gradasi ungu untuk konten */
+            padding: 20px;
+            text-align: center;
         }
-        .content img {
-            display: block;
-            width: 100%; /* Memenuhi layar */
-            height: 100vh; /* Tinggi 100% dari viewport */
-            object-fit: cover; /* Menjaga proporsi gambar */
+        .feature-item {
+            width: calc(33.33% - 20px);
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: #fff;
+            color: #333;
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+        .feature-item img {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 10px;
+        }
+        .feature-item h3 {
+            font-size: 16px;
             margin: 0;
+            padding: 5px;
+            border: 2px solid #87CEEB; /* Border biru langit */
+            border-radius: 5px;
+            background-color: #0000ff; /* Background biru */
+            color: #fff; /* Warna teks putih */
         }
         footer {
             background-color: #007bff;
@@ -72,6 +99,17 @@
             .header-text {
                 font-size: 14px; /* Sesuaikan ukuran font untuk layar kecil */
             }
+            .features {
+                flex-wrap: wrap;
+            }
+            .feature-item {
+                width: calc(50% - 20px);
+            }
+        }
+        @media (max-width: 480px) {
+            .feature-item {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -83,14 +121,29 @@
         </div>
     </header>
 
-    <main>
-        <div class="content">
-            <img src="erorr2.jpg" alt="Materi 1 Image">
+    <section class="features">
+        <div class="feature-item">
+            <a href="Berfikir Komputasional 6.html">
+                <img src="https://i.pinimg.com/originals/5f/bf/01/5fbf01e78c54311f738d9c6f8cf01311.png" alt="Materi 1">
+                <h3>Berfikir Komputasional</h3>
+            </a>
         </div>
-    </main>
+        <div class="feature-item">
+            <a href="Photoshop 6.html">
+                <img src="https://www.visartscenter.org/x/lc-content/uploads/2022/05/JQ4N28w5oAUzKiJ7SzfYvM.jpg" alt="Materi 2">
+                <h3>Memahami Tools Photoshop</h3>
+            </a>
+        </div>
+        <div class="feature-item">
+            <a href="Menggamar rumah dengan photoshop 6.html">
+                <img src="https://img2.pngdownload.id/20180711/b/kisspng-drawing-house-floor-plan-sketch-drawing-house-5b466a413d2a19.4570232415313413772505.jpg" alt="Materi 3">
+                <h3>Menggambar Rumah dengan Photoshop</h3>
+            </a>
+        </div>
+    </section>
 
     <footer>
-        <a href="index.html"><i class="fas fa-home"></i></a>
+        <a href="index2.html"><i class="fas fa-home"></i></a>
         <a href="Menu Materi.html"><i class="fas fa-book"></i></a>
         <a href="tugas.html"><i class="fas fa-calendar-alt"></i></a>
         <a href="https://wa.me/6285890599794"><i class="fas fa-comments"></i></a> <!-- Ganti nomor WhatsApp sesuai kebutuhan -->
@@ -98,4 +151,3 @@
 
 </body>
 </html>
-
