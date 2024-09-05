@@ -98,6 +98,23 @@
                 padding: 10px;
             }
         }
+        .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    margin: 20px 0; /* Tambahkan margin jika diperlukan */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
     </style>
 </head>
 <body>
@@ -111,37 +128,38 @@
     <main>
         <div class="content">
             <h2>Mengenal MS Paint</h2>
-            <img src="https://i.pinimg.com/originals/aa/11/d8/aa11d8e02f6ba6b4637a12ffe17a1815.jpg" alt="Materi 1 Image">
-            <p>MS Paint adalah program sederhana di komputer yang bisa kamu gunakan untuk menggambar, mewarnai, dan mengedit gambar. Program ini sangat cocok untuk pemula, termasuk anak-anak, karena alat-alatnya mudah digunakan dan tidak rumit. Berikut ini penjelasan yang lebih lengkap tentang MS Paint:
+            <img src="https://i.pinimg.com/736x/93/e7/e3/93e7e346fae6acb2d7dd7c4616e5d33f.jpg" alt="Materi 1 Image">
+            <br>
+            <p>MS Paint adalah program sederhana di komputer yang bisa kamu gunakan untuk menggambar, mewarnai, dan mengedit gambar. Program ini sangat cocok untuk pemula, termasuk anak-anak, karena alat-alatnya mudah digunakan dan tidak rumit. Berikut ini penjelasan yang lebih lengkap tentang MS Paint:</p>
 
-1. **Alat Menggambar:**
-   - **Pensil:** Kamu bisa menggunakan pensil untuk menggambar garis-garis tipis, seperti menggambar di atas kertas. Kamu bisa menggambar apa saja, seperti rumah, pohon, atau hewan.
-   - **Kuas:** Dengan kuas, kamu bisa menggambar dengan garis yang lebih tebal dan halus, seperti menggunakan cat di kanvas.
-   - **Spidol:** Alat ini cocok untuk membuat garis-garis yang tebal dan jelas.
-   - **Eraser (Penghapus):** Jika kamu membuat kesalahan saat menggambar, penghapus bisa digunakan untuk menghapus bagian gambar yang salah.
+            <p>Alat Menggambar:</p>
+            <p>Pensil: Kamu bisa menggunakan pensil untuk menggambar garis-garis tipis, seperti menggambar di atas kertas. Kamu bisa menggambar apa saja, seperti rumah, pohon, atau hewan.</p>
+            <p>Kuas: Dengan kuas, kamu bisa menggambar dengan garis yang lebih tebal dan halus, seperti menggunakan cat di kanvas.</p>
+            <p>Spidol: Alat ini cocok untuk membuat garis-garis yang tebal dan jelas.</p>
+            <p>Eraser (Penghapus): Jika kamu membuat kesalahan saat menggambar, penghapus bisa digunakan untuk menghapus bagian gambar yang salah.</p>
 
-2. **Pewarnaan:**
-   - **Ember Cat (Fill Tool):** Dengan alat ini, kamu bisa mengisi seluruh bagian gambar dengan warna yang kamu pilih, seperti mewarnai satu area dengan satu klik.
-   - **Palet Warna:** Di MS Paint, ada banyak pilihan warna. Kamu bisa memilih warna-warna yang cerah seperti merah, kuning, biru, atau warna lembut seperti hijau muda dan pink. Kamu bahkan bisa membuat warna sendiri!
+            <p>Pewarnaan:</p>
+            <p>Ember Cat (Fill Tool): Dengan alat ini, kamu bisa mengisi seluruh bagian gambar dengan warna yang kamu pilih, seperti mewarnai satu area dengan satu klik.</p>
+            <p>Palet Warna: Di MS Paint, ada banyak pilihan warna. Kamu bisa memilih warna-warna yang cerah seperti merah, kuning, biru, atau warna lembut seperti hijau muda dan pink. Kamu bahkan bisa membuat warna sendiri!</p>
 
-3. **Bentuk Siap Pakai:**
-   - **Bentuk-Bentuk Geometris:** MS Paint menyediakan berbagai bentuk, seperti lingkaran, persegi, segitiga, dan garis lurus. Kamu cukup pilih bentuk yang diinginkan, lalu gambarnya akan muncul sesuai ukuran yang kamu tentukan.
-   - **Alat Garis dan Teks:** Kamu juga bisa membuat garis lurus untuk membuat batas atau membentuk objek seperti rumah. Selain itu, kamu bisa menambahkan tulisan ke dalam gambar dengan alat teks (Text Tool).
+            <p>Bentuk Siap Pakai:</p>
+            <p>Bentuk-Bentuk Geometris: MS Paint menyediakan berbagai bentuk, seperti lingkaran, persegi, segitiga, dan garis lurus. Kamu cukup pilih bentuk yang diinginkan, lalu gambarnya akan muncul sesuai ukuran yang kamu tentukan.</p>
+            <p>Alat Garis dan Teks: Kamu juga bisa membuat garis lurus untuk membuat batas atau membentuk objek seperti rumah. Selain itu, kamu bisa menambahkan tulisan ke dalam gambar dengan alat teks (Text Tool).</p>
 
-4. **Fungsi Zoom dan Undo:**
-   - **Zoom:** Jika gambarmu terlalu kecil atau ingin melihat lebih jelas, kamu bisa memperbesar gambar dengan alat zoom.
-   - **Undo:** Kalau kamu tidak sengaja membuat kesalahan, kamu bisa menekan tombol *Undo* untuk mengembalikan gambar ke keadaan sebelum salah.
+            <p>Fungsi Zoom dan Undo:</p>
+            <p>Zoom: Jika gambarmu terlalu kecil atau ingin melihat lebih jelas, kamu bisa memperbesar gambar dengan alat zoom.</p>
+            <p>Undo: Kalau kamu tidak sengaja membuat kesalahan, kamu bisa menekan tombol Undo untuk mengembalikan gambar ke keadaan sebelum salah.</p>
 
-5. **Menyimpan dan Membuka Gambar:**
-   - Setelah selesai menggambar, kamu bisa menyimpan karyamu di komputer dengan memilih *Save*. Kamu juga bisa memilih format penyimpanan seperti JPEG, PNG, BMP, atau GIF.
-   - Jika kamu sudah menyimpan gambar sebelumnya dan ingin melanjutkan, kamu bisa membuka file gambar tersebut dan mengeditnya kembali.
+            <p>Menyimpan dan Membuka Gambar:</p>
+            <p>Setelah selesai menggambar, kamu bisa menyimpan karyamu di komputer dengan memilih Save. Kamu juga bisa memilih format penyimpanan seperti JPEG, PNG, BMP, atau GIF.</p>
+            <p>Jika kamu sudah menyimpan gambar sebelumnya dan ingin melanjutkan, kamu bisa membuka file gambar tersebut dan mengeditnya kembali.</p>
 
-MS Paint sangat bermanfaat bagi anak-anak yang ingin belajar menggambar di komputer dengan cara yang menyenangkan dan mudah dipahami. Kamu bisa berkreasi sesukamu, menggambar apapun yang kamu inginkan, dan menyimpannya untuk dilihat lagi kapan pun.
-                </p>
-            <video controls>
-                <source src="videos/materi1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <p>MS Paint sangat bermanfaat bagi anak-anak yang ingin belajar menggambar di komputer dengan cara yang menyenangkan dan mudah dipahami. Kamu bisa berkreasi sesukamu, menggambar apapun yang kamu inginkan, dan menyimpannya untuk dilihat lagi kapan pun.</p>
+
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/2g6ZRXmcMJI?si=Zs5ihRyfkOyy1fKB" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <br>
         </div>
     </main>
 
@@ -151,6 +169,5 @@ MS Paint sangat bermanfaat bagi anak-anak yang ingin belajar menggambar di kompu
         <a href="../tugas.html"><i class="fas fa-calendar-alt"></i></a>
         <a href="../https://wa.me/6285890599794"><i class="fas fa-comments"></i></a> <!-- Ganti nomor WhatsApp sesuai kebutuhan -->
     </footer>
-
 </body>
 </html>
