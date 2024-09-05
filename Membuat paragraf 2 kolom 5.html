@@ -98,39 +98,83 @@
                 padding: 10px;
             }
         }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            margin: 20px 0; /* Tambahkan margin jika diperlukan */
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="img/logoAnnur.png" alt="Logo">
+            <img src="logoAnnur.png" alt="Logo">
             <span class="header-text">Informatika AN-Nur</span>
         </div>
     </header>
 
     <main>
         <div class="content">
-            <h2>Berfikir Komputasional</h2>
-            <img src="img/materi1.png" alt="Materi 1 Image">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-                Why do we use it?
-                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-                
-                </p>
-            <video controls>
-                <source src="videos/materi1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <h2>Desain Grafis</h2>
+            <img src="https://i.pinimg.com/736x/93/e7/e3/93e7e346fae6acb2d7dd7c4616e5d33f.jpg" alt="Materi 1 Image">
+            <br>
+            <p>
+                <strong>Desain grafis</strong> adalah seni dan keterampilan untuk menciptakan komunikasi visual menggunakan gambar, warna, teks, dan bentuk-bentuk lainnya. Tujuannya adalah untuk menyampaikan pesan kepada orang lain dengan cara yang menarik dan mudah dipahami. Desain grafis digunakan dalam berbagai hal, seperti poster, logo, kemasan produk, buku, website, dan iklan.
+            </p>
+            <p>
+                <strong>Komponen Utama dalam Desain Grafis</strong>
+                <ol>
+                    <li><strong>Gambar</strong>: Gambar bisa berupa foto atau ilustrasi yang digunakan untuk mendukung pesan.</li>
+                    <li><strong>Teks</strong>: Kata-kata yang ditulis dengan gaya huruf (font) tertentu untuk memperjelas informasi.</li>
+                    <li><strong>Warna</strong>: Warna digunakan untuk menarik perhatian dan menciptakan suasana tertentu. Misalnya, warna merah sering digunakan untuk menarik perhatian, sedangkan biru untuk menunjukkan ketenangan.</li>
+                    <li><strong>Bentuk</strong>: Lingkaran, segitiga, persegi, dan bentuk lainnya digunakan untuk membuat desain lebih menarik.</li>
+                </ol>
+            </p>
+            <p>
+                <strong>Contoh Penggunaan Desain Grafis</strong>
+                <ol>
+                    <li><strong>Poster</strong>: Poster yang dipasang di sekolah untuk mengumumkan acara atau lomba sering kali dibuat dengan desain grafis. Di dalamnya ada gambar, teks, dan warna-warna yang menarik.</li>
+                    <li><strong>Logo</strong>: Logo sekolah atau logo toko adalah contoh lain dari desain grafis. Logo dirancang agar mudah diingat dan mewakili identitas suatu tempat atau perusahaan.</li>
+                    <li><strong>Buku</strong>: Sampul buku yang menarik, misalnya buku cerita, juga dibuat dengan desain grafis agar orang tertarik untuk membacanya.</li>
+                </ol>
+            </p>
+            <p>
+                <strong>Aplikasi untuk Desain Grafis</strong>
+                Ada beberapa aplikasi yang bisa digunakan untuk membuat desain grafis, bahkan untuk anak-anak. Berikut beberapa contohnya:
+                <ol>
+                    <li><strong>MS Paint</strong>: Ini adalah aplikasi dasar yang sering digunakan anak-anak untuk belajar menggambar di komputer. Kamu bisa membuat gambar sederhana menggunakan berbagai alat seperti pensil, kuas, dan warna.</li>
+                    <li><strong>Canva</strong>: Aplikasi online yang mudah digunakan oleh siapa saja, termasuk anak-anak. Canva menyediakan berbagai template yang bisa digunakan untuk membuat poster, kartu, atau undangan dengan gambar dan teks yang menarik.</li>
+                    <li><strong>Adobe Spark</strong>: Aplikasi ini membantu membuat desain sederhana dengan mudah. Kamu bisa membuat poster atau grafik dengan memilih gambar dan teks dari template yang disediakan.</li>
+                    <li><strong>Tux Paint</strong>: Aplikasi yang dirancang khusus untuk anak-anak. Tux Paint sangat mudah digunakan dan memiliki berbagai alat untuk menggambar dan menghias gambar.</li>
+                </ol>
+            </p>
+            <p>
+                Dengan menggunakan aplikasi ini, kamu bisa mencoba membuat desain seperti poster untuk acara sekolah atau logo untuk klub kelasmu. Desain grafis membantu kita mengekspresikan ide dengan cara yang kreatif dan menyenangkan!
+            </p>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/2g6ZRXmcMJI?si=Zs5ihRyfkOyy1fKB" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <br>
         </div>
     </main>
 
     <footer>
-        <a href="../index.html"><i class="fas fa-home"></i></a>
+        <a href="../index2.html"><i class="fas fa-home"></i></a>
         <a href="../Menu Materi.html"><i class="fas fa-book"></i></a>
         <a href="../tugas.html"><i class="fas fa-calendar-alt"></i></a>
-        <a href="../https://wa.me/6285890599794"><i class="fas fa-comments"></i></a> <!-- Ganti nomor WhatsApp sesuai kebutuhan -->
+        <a href="https://wa.me/6285890599794"><i class="fas fa-comments"></i></a> <!-- Ganti nomor WhatsApp sesuai kebutuhan -->
     </footer>
-
 </body>
 </html>
