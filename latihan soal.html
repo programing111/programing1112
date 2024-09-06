@@ -12,7 +12,6 @@
             padding: 0;
             background: linear-gradient(to bottom, #6a0dad, #8a2be2); /* Gradasi ungu */
             color: #fff; /* Warna teks putih untuk kontras */
-            overflow-x: hidden; /* Menghindari scroll horizontal */
         }
         header {
             background-color: #ff0000; /* Warna merah */
@@ -37,16 +36,53 @@
             font-size: 24px;
             margin-left: 10px;
         }
-        .full-screen-image {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #f0f4f8;
+            padding: 20px;
+            text-align: center;
         }
-        .full-screen-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .feature-item {
+            width: calc(33.33% - 20px);
+            margin: 10px;
+            padding: 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: #fff;
+            color: #333;
+            position: relative;
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+        .feature-item img {
+            width: 100%; /* Gambar penuh sesuai lebar kontainer */
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        .feature-item button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px 20px;
+            background-color: red; /* Warna tombol diubah menjadi merah */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .feature-item button:hover {
+            background-color: #ff3333;
+        }
+        .feature-item button:active {
+            background-color: #cc0000;
         }
         footer {
             background-color: #007bff;
@@ -70,10 +106,42 @@
         footer a:hover {
             transform: scale(1.2);
         }
+        .feature-item:nth-child(1) {
+            border: 3px solid red; /* Border merah */
+        }
+        .feature-item:nth-child(2) {
+            border: 3px solid green; /* Border hijau */
+        }
+        .feature-item:nth-child(3) {
+            border: 3px solid blue; /* Border biru */
+        }
+        .feature-item:nth-child(4) {
+            border: 3px solid yellow; /* Border kuning */
+        }
+        .feature-item:nth-child(5) {
+            border: 3px solid orange; /* Border oranye */
+        }
+        .feature-item:nth-child(6) {
+            border: 3px solid purple; /* Border ungu */
+        }
         @media (max-width: 768px) {
             .header-text {
                 font-size: 14px; /* Sesuaikan ukuran font untuk layar kecil */
             }
+            .features {
+                flex-wrap: wrap;
+            }
+            .feature-item {
+                width: calc(50% - 20px);
+            }
+        }
+        @media (max-width: 480px) {
+            .feature-item {
+                width: 100%;
+            }
+        }
+        audio {
+            display: none; /* Sembunyikan elemen audio */
         }
     </style>
 </head>
@@ -85,15 +153,48 @@
         </div>
     </header>
 
-    <section class="full-screen-image">
-        <img src="Error1jpg.jpg" alt="Full Screen Image">
+    <section class="features">
+        <div class="feature-item">
+            <img src="https://i.pinimg.com/236x/09/90/cb/0990cbb8d9e53f25072d77a747a4dc92.jpg" alt="Kelas 4">
+            <button onclick="location.href='menu kelas 4.html'">Soal Kelas 4</button>
+        </div>
+        <div class="feature-item">
+            <img src="https://i.pinimg.com/236x/09/90/cb/0990cbb8d9e53f25072d77a747a4dc92.jpg" alt="Kelas 5">
+            <button onclick="location.href='menu kelas 5.html'">Soal Kelas 5</button>
+        </div>
+        <div class="feature-item">
+            <img src="https://i.pinimg.com/236x/09/90/cb/0990cbb8d9e53f25072d77a747a4dc92.jpg" alt="Kelas 6">
+            <button onclick="location.href='menu kelas 6.html'">Soal Kelas 6</button>
+        </div>
+        <div class="feature-item">
+            <img src="https://i.pinimg.com/236x/09/90/cb/0990cbb8d9e53f25072d77a747a4dc92.jpg" alt="Kelas 7">
+            <button onclick="location.href='menu kelas 7.html'">Soal Kelas 7</button>
+        </div>
+        <div class="feature-item">
+            <img src="https://i.pinimg.com/236x/09/90/cb/0990cbb8d9e53f25072d77a747a4dc92.jpg" alt="Kelas 8">
+            <button onclick="location.href='menu kelas 8.html'">Soal Kelas 8</button>
+        </div>
+        <div class="feature-item">
+            <img src="https://i.pinimg.com/236x/09/90/cb/0990cbb8d9e53f25072d77a747a4dc92.jpg" alt="Kelas 9">
+            <button onclick="location.href='menu kelas 9.html'">Soal Kelas 9</button>
+        </div>
     </section>
 
-   <footer>
+    <footer>
         <a href="index2.html"><i class="fas fa-home"></i></a>
         <a href="Menu Materi.html"><i class="fas fa-book"></i></a>
         <a href="tugas.html"><i class="fas fa-calendar-alt"></i></a>
         <a href="https://wa.me/6285890599794"><i class="fas fa-comments"></i></a> <!-- Ganti nomor WhatsApp sesuai kebutuhan -->
     </footer>
+
+    <audio autoplay muted id="background-audio">
+        <source src="musik.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        // Aktifkan suara setelah halaman dimuat
+        document.getElementById('background-audio').muted = false;
+    </script>
+    
 </body>
 </html>
