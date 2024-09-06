@@ -98,64 +98,90 @@
                 padding: 10px;
             }
         }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            margin: 20px 0; /* Tambahkan margin jika diperlukan */
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .highlight {
+            color: #6a0dad; /* Warna ungu untuk penekanan */
+            font-weight: bold;
+        }
+        .example {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="img/logoAnnur.png" alt="Logo">
+            <img src="logoAnnur.png" alt="Logo">
             <span class="header-text">Informatika AN-Nur</span>
         </div>
     </header>
 
     <main>
         <div class="content">
-            <h2>Berfikir Komputasional</h2>
-            <img src="img/materi1.png" alt="Materi 1 Image">
-            <p> Langkah 1: Buat Struktur Dasar HTML
-
-Mulailah dengan membuat struktur dasar HTML. Kamu membutuhkan elemen-elemen dasar seperti <html>, <head>, dan <body>.
-
-
-Langkah 2: Tambahkan Elemen <table>
-
-Di dalam elemen <body>, tambahkan tag <table> untuk membuat tabel jadwal pelajaran.
-
-
-Langkah 3: Buat Header Tabel Menggunakan <tr> dan <th>
-
-Buat baris pertama untuk header tabel menggunakan tag <tr> dan tambahkan header kolom menggunakan tag <th>. Kolom header meliputi waktu dan hari-hari dalam seminggu (Senin hingga Jumat).
-                </p>
-
-      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjK4Id8XZtHhVMcXnXYsouZJztcj5IkwMH35c0BqWnuhjDh2qwmvGTkZzUxUzuDaz_xCh2IxJmFf9zbZf0A3WsWaDeTFxAjLlzzPkjtr8sYOTuPffwT3jROIrsMYhUMVrjJcgJ7cThJQhVsUz4Bz4S0W-9zVWir9vHEUGanl1B5HYcmRc5pWpoQkzq0ZHo/w314-h174/Screenshot_21.png" alt="Materi 1 Image">
-         <span></span>
-     <span></span>
-    <p>
-               Langkah 4: Tambahkan Data Jadwal Menggunakan <tr> dan <td>
-
-Buat baris untuk setiap waktu pelajaran menggunakan tag <tr> dan tambahkan data pelajaran untuk setiap hari menggunakan tag <td>.
-           </p>
-    
-     <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2qy8TXW3ep7s9DcARhP7mjVEjCmm4IQAKX3whcKrSfxR2RitFdybkYqA0wLNFsBc429aww6y5Ja6xIhNATS4H_F84yZ5BYfGyv_D6YJCzahEMS-BfNNSSwqDuLHBfNk-9IDaPj5oEoXStMv-NxqNNoGRMPm8ysIDELZpSBQXpJRQkq_a1g-OGu11ZWJ0/w641-h130/Screenshot_22.png" alt="Materi 1 Image">
-    <p>
-        Langkah 5: Tambahkan Gaya (CSS) ke Tabel
-
-Tambahkan gaya menggunakan CSS untuk membuat tabel lebih mudah dibaca dan menarik. Gaya ini diatur dalam bagian <style> yang terletak di dalam tag <head>.
-    </p>
-
-     <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieu9GCaSh6Pd8ReQOWwP4VHSpewAGcFvSb0SZrXAwPwPhxNVeC0Zce_aVYkxH7o-ZeMUFEMmsAGVWmDgnADLECcEE8Df_n925oCaCXVKt96wUPZ9WdQBGn4doW73k_nBcOTGjEQUjZ4Vd9270N4eNZJft1ryp3y5NOPgfnBO7t62-B6UVn291Y9c3LlV0/w373-h273/Screenshot_20.png" alt="Materi 1 Image">
-    <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/2g6ZRXmcMJI?si=Zs5ihRyfkOyy1fKB" frameborder="0" allowfullscreen></iframe>
+            <h2>Cara Membuat Jadwal Pelajaran dengan HTML</h2>
+            <img src="https://i.ytimg.com/vi/T5PD8ofhiug/maxresdefault.jpg" alt="Materi 1 Image">
+            <br>
+            <p>
+                Membuat jadwal pelajaran dengan HTML bisa dilakukan dengan mudah menggunakan tabel. Tabel di HTML didefinisikan dengan tag <code>&lt;table&gt;</code>, dan terdiri dari baris <code>&lt;tr&gt;</code>, kolom <code>&lt;td&gt;</code>, dan header tabel <code>&lt;th&gt;</code>. Berikut adalah contoh sederhana cara membuat jadwal pelajaran:
+            </p>
+            <p>
+                <strong>Contoh kode HTML:</strong>
+                <div class="example">
+                    &lt;table border="1"&gt;<br>
+                    &nbsp;&nbsp;&lt;tr&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Hari&lt;/th&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Mata Pelajaran&lt;/th&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Waktu&lt;/th&gt;<br>
+                    &nbsp;&nbsp;&lt;/tr&gt;<br>
+                    &nbsp;&nbsp;&lt;tr&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Senin&lt;/td&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Matematika&lt;/td&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;08:00 - 09:30&lt;/td&gt;<br>
+                    &nbsp;&nbsp;&lt;/tr&gt;<br>
+                    &nbsp;&nbsp;&lt;tr&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Selasa&lt;/td&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Bahasa Indonesia&lt;/td&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;08:00 - 09:30&lt;/td&gt;<br>
+                    &nbsp;&nbsp;&lt;/tr&gt;<br>
+                    &lt;/table&gt;
+                </div>
+            </p>
+            <p>
+                Dalam contoh di atas, tag <code>&lt;table&gt;</code> digunakan untuk membuat tabel, sementara <code>&lt;tr&gt;</code> digunakan untuk membuat baris, dan <code>&lt;td&gt;</code> untuk menampilkan data di setiap kolom.
+            </p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/vKwoubRukMI?si=qvzAANUcm2iY-q_O" frameborder="0" allowfullscreen></iframe>
             </div>
+            <br>
         </div>
     </main>
 
     <footer>
-        <a href="index.html"><i class="fas fa-home"></i></a>
+        <a href="index2.html"><i class="fas fa-home"></i></a>
         <a href="Menu Materi.html"><i class="fas fa-book"></i></a>
         <a href="tugas.html"><i class="fas fa-calendar-alt"></i></a>
-        <a href="https://wa.me/6285890599794"><i class="fas fa-comments"></i></a> <!-- Ganti nomor WhatsApp sesuai kebutuhan -->
+        <a href="https://wa.me/6285890599794"><i class="fas fa-comments"></i></a>
     </footer>
-
 </body>
 </html>
