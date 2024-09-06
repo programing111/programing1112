@@ -98,39 +98,184 @@
                 padding: 10px;
             }
         }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            margin: 20px 0; /* Tambahkan margin jika diperlukan */
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .highlight {
+            color: #6a0dad; /* Warna ungu untuk penekanan */
+            font-weight: bold;
+        }
+        .example {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="img/logoAnnur.png" alt="Logo">
+            <img src="logoAnnur.png" alt="Logo">
             <span class="header-text">Informatika AN-Nur</span>
         </div>
     </header>
 
     <main>
         <div class="content">
-            <h2>Berfikir Komputasional</h2>
-            <img src="img/materi1.png" alt="Materi 1 Image">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-                Why do we use it?
-                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            <h2>Cara Membuat Jadwal Pelajaran dengan HTML</h2>
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGPsqyQZMxt2BDEGTvIRzw9ZhOk6Z-234UYJAkmoba0LhtnXkqKl9Gh31Ww8nO7ZGeGtHTl0C1iz5hSszYK07JN5Hj1oC0kRWc2iJVGkFIQG-Ls6Ous1Bjfkh6zlk5aQiqeUSSlSK1usLS_ppNz-FW-X1xmuMduEuVHrz_rBDX2RykyGnuB1bn90pEr9c/w587-h328/Screenshot%20(2).png" alt="Materi 1 Image">
+            <br>
+            <p>
+                <strong>Scratch</strong> adalah bahasa pemrograman visual yang dirancang untuk anak-anak dan pemula dalam dunia pemrograman. Dibuat oleh <strong>MIT Media Lab</strong>, Scratch memungkinkan pengguna untuk membuat cerita interaktif, permainan, animasi, dan karya kreatif lainnya tanpa perlu mengetik kode. Sebagai gantinya, pengguna menyeret dan menggabungkan blok-blok kode yang berbentuk seperti puzzle untuk menciptakan program.
+    
+                <br><br>
+                <strong>Berikut adalah penjelasan tentang Scratch dan seluruh blok yang tersedia:</strong>
                 
-                </p>
-            <video controls>
-                <source src="videos/materi1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+                <br><br>
+                <strong>1. Apa Itu Scratch?</strong><br>
+                Scratch menggunakan konsep <strong>block-based programming</strong>, di mana kode yang dihasilkan disusun dari berbagai blok yang dihubungkan secara visual. Setiap blok mewakili fungsi tertentu, seperti gerakan, kontrol, suara, atau variabel, dan mereka dirancang untuk bekerja bersama secara mulus. Scratch sangat populer dalam pendidikan karena mempermudah anak-anak belajar konsep-konsep pemrograman tanpa harus menulis kode manual.
+                
+                <br><br>
+                Scratch menawarkan cara yang menyenangkan dan interaktif untuk mengajarkan konsep-konsep seperti <strong>loop</strong>, <strong>kondisi</strong>, <strong>variabel</strong>, dan <strong>peristiwa (events)</strong>. Proyek-proyek Scratch dapat dibagikan secara online dalam komunitas global Scratch, di mana pengguna bisa saling memberi komentar dan remix proyek satu sama lain.
+                
+                <br><br>
+                <strong>2. Jenis-Jenis Blok di Scratch</strong><br>
+                Scratch memiliki berbagai kategori blok yang berbeda, yang dibagi berdasarkan fungsinya. Berikut adalah kategori-kategori blok utama di Scratch beserta penjelasan tentang masing-masing kategori dan beberapa blok penting di dalamnya.
+                
+                <br><br>
+                <strong>a. Motion (Gerakan)</strong><br>
+                Blok ini digunakan untuk menggerakkan sprite (objek) dalam proyek.
+                
+                <br>
+                <strong>Move [10] steps:</strong> Menggerakkan sprite sejauh 10 langkah.<br>
+                <strong>Turn [15] degrees:</strong> Memutar sprite searah jarum jam sebesar 15 derajat.<br>
+                <strong>Go to [random position]:</strong> Mengarahkan sprite ke posisi tertentu (misalnya posisi acak atau koordinat tertentu).<br>
+                <strong>Glide [1] secs to [x: y:]:</strong> Menggerakkan sprite ke koordinat yang ditentukan dalam waktu yang diatur.<br>
+                <strong>If on edge, bounce:</strong> Membuat sprite memantul ketika mencapai tepi layar.
+                
+                <br><br>
+                <strong>b. Looks (Tampilan)</strong><br>
+                Blok ini mempengaruhi tampilan sprite atau latar belakang (background).
+                
+                <br>
+                <strong>Say [Hello] for [2] seconds:</strong> Membuat sprite berkata sesuatu untuk beberapa detik.<br>
+                <strong>Switch costume to [costume1]:</strong> Mengganti kostum sprite (misalnya untuk membuat animasi).<br>
+                <strong>Change size by [10]:</strong> Mengubah ukuran sprite.<br>
+                <strong>Show / Hide:</strong> Menampilkan atau menyembunyikan sprite.
+                
+                <br><br>
+                <strong>c. Sound (Suara)</strong><br>
+                Blok ini digunakan untuk memainkan suara atau musik dalam proyek.
+                
+                <br>
+                <strong>Play sound [Meow] until done:</strong> Memainkan suara tertentu hingga selesai.<br>
+                <strong>Start sound [Meow]:</strong> Memulai suara tanpa menunggu hingga suara selesai.<br>
+                <strong>Change volume by [10]:</strong> Mengubah volume suara.
+                
+                <br><br>
+                <strong>d. Events (Acara)</strong><br>
+                Blok ini digunakan untuk memulai skrip berdasarkan suatu peristiwa.
+                
+                <br>
+                <strong>When [green flag] clicked:</strong> Menjalankan skrip saat bendera hijau diklik (ini biasanya digunakan untuk memulai proyek).<br>
+                <strong>When [key space] pressed:</strong> Menjalankan skrip ketika tombol keyboard tertentu ditekan.<br>
+                <strong>When backdrop switches to [backdrop1]:</strong> Menjalankan skrip saat latar belakang berganti.
+                
+                <br><br>
+                <strong>e. Control (Kontrol)</strong><br>
+                Blok ini berfungsi untuk mengendalikan alur program, seperti membuat loop (pengulangan) dan kondisi.
+                
+                <br>
+                <strong>Wait [1] seconds:</strong> Menunggu selama beberapa detik sebelum melanjutkan ke blok berikutnya.<br>
+                <strong>Forever:</strong> Menjalankan blok di dalamnya secara terus-menerus tanpa henti.<br>
+                <strong>Repeat [10]:</strong> Mengulangi blok di dalamnya sebanyak 10 kali.<br>
+                <strong>If [condition] then:</strong> Menjalankan blok di dalamnya jika kondisi terpenuhi.<br>
+                <strong>Stop all:</strong> Menghentikan semua skrip yang sedang berjalan.
+                
+                <br><br>
+                <strong>f. Sensing (Indera)</strong><br>
+                Blok ini memungkinkan sprite merasakan atau mendeteksi berbagai peristiwa atau kondisi.
+                
+                <br>
+                <strong>Touching [mouse-pointer]?:</strong> Memeriksa apakah sprite menyentuh objek tertentu.<br>
+                <strong>Ask [What's your name?] and wait:</strong> Menampilkan kotak input untuk bertanya pada pengguna.<br>
+                <strong>Mouse down?:</strong> Memeriksa apakah tombol mouse sedang ditekan.<br>
+                <strong>Key [space] pressed?:</strong> Memeriksa apakah tombol keyboard tertentu ditekan.
+                
+                <br><br>
+                <strong>g. Operators (Operator)</strong><br>
+                Blok ini digunakan untuk perhitungan dan manipulasi data.
+                
+                <br>
+                <strong>[5] + [5]:</strong> Menambahkan dua angka.<br>
+                <strong>[10] > [5]:</strong> Memeriksa apakah 10 lebih besar dari 5.<br>
+                <strong>Pick random [1] to [10]:</strong> Memilih angka acak antara 1 dan 10.<br>
+                <strong>Join [Hello] [World]:</strong> Menggabungkan dua teks.
+                
+                <br><br>
+                <strong>h. Variables (Variabel)</strong><br>
+                Blok ini digunakan untuk membuat dan mengelola variabel yang bisa menyimpan nilai seperti angka atau teks.
+                
+                <br>
+                <strong>Set [Score] to [0]:</strong> Mengatur nilai variabel ke angka tertentu.<br>
+                <strong>Change [Score] by [1]:</strong> Mengubah nilai variabel dengan menambah atau mengurangi.<br>
+                <strong>Show variable [Score]:</strong> Menampilkan variabel di layar.<br>
+                <strong>Hide variable [Score]:</strong> Menyembunyikan variabel dari layar.
+                
+                <br><br>
+                <strong>i. My Blocks (Blok Saya)</strong><br>
+                Blok ini digunakan untuk membuat blok khusus yang bisa digunakan kembali, seperti fungsi dalam pemrograman tradisional.
+                
+                <br>
+                <strong>Make a Block:</strong> Membuat blok baru dengan nama yang diinginkan, dan mengatur apa yang harus dilakukan oleh blok ini.
+                
+                <br><br>
+                <strong>3. Cara Kerja Scratch</strong><br>
+                Scratch menggunakan metode <strong>event-driven programming</strong> atau pemrograman berbasis peristiwa, di mana blok dimulai ketika ada peristiwa yang terjadi, seperti pengguna menekan tombol keyboard atau mengklik bendera hijau. Setiap skrip dalam Scratch terdiri dari blok-blok yang diurutkan dari atas ke bawah.
+                
+                <br><br>
+                <strong>4. Manfaat Scratch dalam Pendidikan</strong><br>
+                Scratch sangat bermanfaat untuk mengajarkan pemrograman kepada anak-anak dan pemula. Manfaat utama Scratch meliputi:
+                
+                <br><br>
+                <strong>Visual dan Interaktif:</strong> Tidak perlu menulis kode secara manual, cukup seret dan jatuhkan blok-blok.<br>
+                <strong>Mengajarkan Logika Pemrograman:</strong> Pengguna belajar konsep dasar seperti pengulangan (<em>loops</em>), kondisi (<em>if-else</em>), dan variabel.<br>
+                <strong>Kreativitas dan Kolaborasi:</strong> Scratch memfasilitasi kreativitas melalui cerita, animasi, dan game. Selain itu, proyek bisa dibagikan dan dikomentari oleh komunitas global.<br>
+                <strong>Bahasa Pemrograman Pemula:</strong> Sangat mudah dipelajari oleh anak-anak, Scratch memberikan pengantar yang baik sebelum belajar bahasa pemrograman yang lebih kompleks seperti Python atau JavaScript.
+                
+                <br><br>
+                Dengan Scratch, pengguna dapat menciptakan berbagai proyek kreatif sekaligus belajar logika dan konsep pemrograman. Scratch juga membantu memupuk keterampilan <strong>problem-solving</strong> dan <strong>computational thinking</strong>.
+            </p>
+            <br>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/2g6ZRXmcMJI?si=Zs5ihRyfkOyy1fKB" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <br>
         </div>
     </main>
 
     <footer>
-        <a href="index.html"><i class="fas fa-home"></i></a>
+        <a href="index2.html"><i class="fas fa-home"></i></a>
         <a href="Menu Materi.html"><i class="fas fa-book"></i></a>
         <a href="tugas.html"><i class="fas fa-calendar-alt"></i></a>
-        <a href="https://wa.me/6285890599794"><i class="fas fa-comments"></i></a> <!-- Ganti nomor WhatsApp sesuai kebutuhan -->
+        <a href="https://wa.me/6285890599794"><i class="fas fa-comments"></i></a>
     </footer>
-
 </body>
 </html>
