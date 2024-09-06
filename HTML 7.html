@@ -98,83 +98,236 @@
                 padding: 10px;
             }
         }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            margin: 20px 0; /* Tambahkan margin jika diperlukan */
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .highlight {
+            color: #6a0dad; /* Warna ungu untuk penekanan */
+            font-weight: bold;
+        }
+        .example {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="img/logoAnnur.png" alt="Logo">
+            <img src="logoAnnur.png" alt="Logo">
             <span class="header-text">Informatika AN-Nur</span>
         </div>
     </header>
 
     <main>
         <div class="content">
-            <h2>Berfikir Komputasional</h2>
-            <img src="img/materi1.png" alt="Materi 1 Image">
+            <h2>Mengenal Fungsi Tools Pada Photoshop</h2>
+            <img src="https://www.photohowto.info/files/images/2012/05/photoshop-cs6.png" alt="Materi 1 Image">
+            <br>
             <p>
-                HTML, singkatan dari Hypertext Markup Language, adalah bahasa markup yang digunakan untuk membuat dan menyusun halaman web. HTML menyusun dokumen dengan menggunakan berbagai tag yang memberikan struktur dan makna pada konten web. Setiap halaman web dimulai dengan deklarasi <code>&lt;!DOCTYPE html&gt;</code> yang memberi tahu browser bahwa dokumen ini mengikuti standar HTML5. 
-                <br><br>
-                Struktur dasar HTML terdiri dari elemen-elemen berikut:
-                <br><br>
-                - **Tag `<html>`**: Ini adalah elemen root dari dokumen HTML. Semua elemen lain berada di dalam tag ini.
-                <pre><code>&lt;html&gt;
-    &lt;head&gt;
-        &lt;title&gt;Judul Halaman&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;h1&gt;Ini Judul&lt;/h1&gt;
-        &lt;p&gt;Ini paragraf&lt;/p&gt;
-    &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-                <br><br>
-                - **Tag `<head>`**: Bagian ini berisi metadata tentang dokumen, termasuk judul halaman dan link ke stylesheet atau script eksternal.
-                <pre><code>&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Judul Halaman&lt;/title&gt;
-    &lt;link rel="stylesheet" href="style.css"&gt;
-&lt;/head&gt;</code></pre>
-                <br><br>
-                - **Tag `<body>`**: Berisi konten utama yang ditampilkan di halaman web, seperti teks, gambar, dan video.
-                <pre><code>&lt;body&gt;
-    &lt;h1&gt;Judul Utama&lt;/h1&gt;
-    &lt;p&gt;Teks paragraf&lt;/p&gt;
-    &lt;img src="gambar.jpg" alt="Deskripsi gambar"&gt;
-    &lt;video controls&gt;
-        &lt;source src="video.mp4" type="video/mp4"&gt;
-        Your browser does not support the video tag.
-    &lt;/video&gt;
-&lt;/body&gt;</code></pre>
-                <br><br>
-                - **Tag `<h1>` sampai `<h6>`**: Digunakan untuk membuat judul dengan tingkat kepentingan yang berbeda. `<h1>` adalah yang paling penting, dan `<h6>` adalah yang paling tidak penting.
-                <pre><code>&lt;h1&gt;Judul Terbesar&lt;/h1&gt;
-&lt;h2&gt;Judul Kedua&lt;/h2&gt;
-&lt;h3&gt;Judul Ketiga&lt;/h3&gt;</code></pre>
-                <br><br>
-                - **Tag `<p>`**: Mengelompokkan teks dalam paragraf.
-                <pre><code>&lt;p&gt;Ini adalah paragraf&lt;/p&gt;</code></pre>
-                <br><br>
-                - **Tag `<a>`**: Membuat hyperlink yang menghubungkan ke halaman lain atau sumber eksternal. Atribut `href` menentukan URL tujuan.
-                <pre><code>&lt;a href="https://www.example.com"&gt;Kunjungi Example&lt;/a&gt;</code></pre>
-                <br><br>
-                - **Tag `<img>`**: Menyisipkan gambar ke dalam halaman. Atribut `src` menentukan lokasi gambar, dan `alt` memberikan teks alternatif jika gambar tidak dapat ditampilkan.
-                <pre><code>&lt;img src="gambar.jpg" alt="Deskripsi gambar"&gt;</code></pre>
-                <br><br>
-                - **Tag `<video>`**: Menyisipkan video ke dalam halaman web. Atribut `controls` menambahkan kontrol video seperti play, pause, dan volume.
-                <pre><code>&lt;video controls&gt;
-    &lt;source src="video.mp4" type="video/mp4"&gt;
-    Your browser does not support the video tag.
-&lt;/video&gt;</code></pre>
-                <br><br>
-                HTML juga memungkinkan penggunaan atribut untuk memberikan informasi tambahan kepada elemen-elemen. Contoh atribut termasuk `src` (sumber file), `alt` (teks alternatif), dan `href` (URL untuk tautan). 
-                <br><br>
-                Dengan HTML, Anda bisa menyusun halaman web dengan struktur yang jelas dan teratur. HTML dapat dipadukan dengan CSS (Cascading Style Sheets) untuk mengatur tampilan visual halaman dan JavaScript untuk menambahkan interaktivitas, seperti formulir dinamis dan animasi.
+                HTML (Hypertext Markup Language) adalah bahasa markup yang digunakan untuk membuat dan mengatur halaman web. HTML menyediakan struktur dasar sebuah halaman web dengan elemen-elemen yang ditulis dalam bentuk "tag". Setiap tag HTML memiliki fungsi spesifik yang membantu dalam menampilkan konten seperti teks, gambar, video, link, dan sebagainya di browser.
             </p>
-            <video controls>
-                <source src="videos/materi1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <p>
+                Struktur Dasar HTML:
+                <code class="highlight">
+                    &lt;!DOCTYPE html&gt;<br>
+                    &lt;html lang="en"&gt;<br>
+                    &lt;head&gt;<br>
+                    &nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+                    &nbsp;&nbsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
+                    &nbsp;&nbsp;&lt;title&gt;Title of the page&lt;/title&gt;<br>
+                    &lt;/head&gt;<br>
+                    &lt;body&gt;<br>
+                    &nbsp;&nbsp;&lt;h1&gt;Hello, World!&lt;/h1&gt;<br>
+                    &nbsp;&nbsp;&lt;p&gt;Ini adalah halaman HTML pertama saya.&lt;/p&gt;<br>
+                    &lt;/body&gt;<br>
+                    &lt;/html&gt;
+                </code>
+            </p>
+            <p>
+                - <strong class="highlight">&lt;!DOCTYPE html&gt;</strong>: Deklarasi yang memberitahu browser bahwa dokumen ini menggunakan HTML5.
+                <br><strong>Contoh:</strong>
+                <div class="example">
+                    &lt;!DOCTYPE html&gt;
+                </div>
+            </p>
+            <p>
+                - <strong class="highlight">&lt;html&gt;</strong>: Tag pembuka yang menyatakan awal dari dokumen HTML.
+                <br><strong>Contoh:</strong>
+                <div class="example">
+                    &lt;html lang="en"&gt; <br>
+                    ...konten halaman... <br>
+                    &lt;/html&gt;
+                </div>
+            </p>
+            <p>
+                - <strong class="highlight">&lt;head&gt;</strong>: Bagian dari halaman HTML yang berisi meta informasi, seperti judul halaman (<strong>&lt;title&gt;</strong>) dan referensi ke stylesheet atau skrip.
+                <br><strong>Contoh:</strong>
+                <div class="example">
+                    &lt;head&gt;<br>
+                    &nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+                    &nbsp;&nbsp;&lt;title&gt;Judul Halaman&lt;/title&gt;<br>
+                    &lt;/head&gt;
+                </div>
+            </p>
+            <p>
+                - <strong class="highlight">&lt;meta charset="UTF-8"&gt;</strong>: Menentukan encoding karakter yang digunakan (UTF-8 mencakup hampir semua karakter dan simbol).
+                <br><strong>Contoh:</strong>
+                <div class="example">
+                    &lt;meta charset="UTF-8"&gt;
+                </div>
+            </p>
+            <p>
+                - <strong class="highlight">&lt;title&gt;</strong>: Menentukan judul halaman yang akan muncul di tab browser.
+                <br><strong>Contoh:</strong>
+                <div class="example">
+                    &lt;title&gt;Judul Halaman&lt;/title&gt;
+                </div>
+            </p>
+            <p>
+                - <strong class="highlight">&lt;body&gt;</strong>: Berisi konten utama halaman web, seperti teks, gambar, dan elemen interaktif lainnya.
+                <br><strong>Contoh:</strong>
+                <div class="example">
+                    &lt;body&gt;<br>
+                    &nbsp;&nbsp;&lt;h1&gt;Ini adalah judul&lt;/h1&gt;<br>
+                    &nbsp;&nbsp;&lt;p&gt;Ini adalah paragraf.&lt;/p&gt;<br>
+                    &lt;/body&gt;
+                </div>
+            </p>
+            <p>
+                <strong class="highlight">Tag-Tag HTML Penting:</strong><br>
+                1. <strong>Heading Tags</strong> (h1 - h6): Heading digunakan untuk membuat judul atau subjudul pada halaman web.
+                <br><strong>Contoh:</strong>
+                <div class="example">
+                    &lt;h1&gt;Ini adalah Heading 1&lt;/h1&gt;<br>
+                    &lt;h2&gt;Ini adalah Heading 2&lt;/h2&gt;
+                </div>
+            </p>
+            <p>
+                2. <strong>&lt;p&gt;</strong> (paragraph): Digunakan untuk menulis paragraf teks.
+                <br><strong>Contoh:</strong>
+                <div class="example">
+                    &lt;p&gt;Ini adalah sebuah paragraf dalam HTML.&lt;/p&gt;
+                </div>
+            </p>
+            <p>
+                3. <strong>&lt;a&gt;</strong> (anchor): Digunakan untuk membuat hyperlink yang mengarahkan ke halaman lain atau URL.
+                <br><strong>Contoh:</strong>
+                <div class="example">
+                    &lt;a href="https://www.example.com"&gt;Kunjungi Example&lt;/a&gt;
+                </div>
+            </p>
+            <p>
+                4. <strong>&lt;img&gt;</strong> (image): Digunakan untuk menampilkan gambar di halaman web.
+                <br><strong>Contoh:</strong>
+                <div class="example">
+                    &lt;img src="image.jpg" alt="Deskripsi Gambar"&gt;
+                </div>
+            </p>
+            <p>
+                5. <strong>&lt;video&gt;</strong> (video): Digunakan untuk menyematkan video ke dalam halaman web.
+                <br><strong>Contoh:</strong>
+                <div class="example">
+                    &lt;video src="video.mp4" controls&gt;&lt;/video&gt;
+                </div>
+            </p>
+            <p>
+                6. <strong>&lt;ul&gt;</strong> (unordered list): Digunakan untuk membuat daftar dengan bullet points.
+                <br><strong>Contoh:</strong>
+                <div class="example">
+                    &lt;ul&gt;<br>
+                    &nbsp;&nbsp;&lt;li&gt;Item 1&lt;/li&gt;<br>
+                    &nbsp;&nbsp;&lt;li&gt;Item 2&lt;/li&gt;<br>
+                    &nbsp;&nbsp;&lt;li&gt;Item 3&lt;/li&gt;<br>
+                    &lt;/ul&gt;
+                </div>
+            </p>
+            <p>
+                7. <strong>&lt;ol&gt;</strong> (ordered list): Digunakan untuk membuat daftar dengan nomor urut.
+                <br><strong>Contoh:</strong>
+                <div class="example">
+                    &lt;ol&gt;<br>
+                    &nbsp;&nbsp;&lt;li&gt;Item 1&lt;/li&gt;<br>
+                    &nbsp;&nbsp;&lt;li&gt;Item 2&lt;/li&gt;<br>
+                    &nbsp;&nbsp;&lt;li&gt;Item 3&lt;/li&gt;<br>
+                    &lt;/ol&gt;
+                </div>
+            </p>
+            <p>
+                8. <strong>&lt;li&gt;</strong> (list item): Digunakan untuk item di dalam daftar (<strong>&lt;ul&gt;</strong> atau <strong>&lt;ol&gt;</strong>).
+                <br><strong>Contoh:</strong>
+                <div class="example">
+                    &lt;li&gt;Item Daftar&lt;/li&gt;
+                </div>
+            </p>
+            <p>
+                9. <strong>&lt;table&gt;</strong> (table): Digunakan untuk membuat tabel.
+                <br><strong>Contoh:</strong>
+                <div class="example">
+                    &lt;table&gt;<br>
+                    &nbsp;&nbsp;&lt;tr&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Header 1&lt;/th&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Header 2&lt;/th&gt;<br>
+                    &nbsp;&nbsp;&lt;/tr&gt;<br>
+                    &nbsp;&nbsp;&lt;tr&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Data 1&lt;/td&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Data 2&lt;/td&gt;<br>
+                    &nbsp;&nbsp;&lt;/tr&gt;<br>
+                    &lt;/table&gt;
+                </div>
+            </p>
+            <p>
+                10. <strong>&lt;tr&gt;</strong> (table row): Digunakan untuk mendefinisikan baris dalam tabel.
+                <br><strong>Contoh:</strong>
+                <div class="example">
+                    &lt;tr&gt;<br>
+                    &nbsp;&nbsp;&lt;td&gt;Data&lt;/td&gt;<br>
+                    &lt;/tr&gt;
+                </div>
+            </p>
+            <p>
+                11. <strong>&lt;td&gt;</strong> (table data): Digunakan untuk mendefinisikan sel data dalam tabel.
+                <br><strong>Contoh:</strong>
+                <div class="example">
+                    &lt;td&gt;Data&lt;/td&gt;
+                </div>
+            </p>
+            <p>
+                12. <strong>&lt;th&gt;</strong> (table header): Digunakan untuk mendefinisikan sel header dalam tabel.
+                <br><strong>Contoh:</strong>
+                <div class="example">
+                    &lt;th&gt;Header&lt;/th&gt;
+                </div>
+            </p>
+            <p>
+                13. <strong>&lt;link&gt;</strong> (link): Digunakan untuk menghubungkan dokumen dengan stylesheet eksternal atau sumber daya lain.
+                <br><strong>Contoh:</strong>
+                <div class="example">
+                    &lt;link rel="stylesheet" href="styles.css"&gt;
+                </div>
+            </p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/2g6ZRXmcMJI?si=Zs5ihRyfkOyy1fKB" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <br>
         </div>
     </main>
 
@@ -182,8 +335,7 @@
         <a href="index2.html"><i class="fas fa-home"></i></a>
         <a href="Menu Materi.html"><i class="fas fa-book"></i></a>
         <a href="tugas.html"><i class="fas fa-calendar-alt"></i></a>
-        <a href="https://wa.me/6285890599794"><i class="fas fa-comments"></i></a> <!-- Ganti nomor WhatsApp sesuai kebutuhan -->
+        <a href="https://wa.me/6285890599794"><i class="fas fa-comments"></i></a>
     </footer>
-
 </body>
 </html>
