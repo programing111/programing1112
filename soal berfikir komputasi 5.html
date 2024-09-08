@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Interaktif</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradasi warna biru dan ungu */
+            color: white;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .quiz-container {
+            background-color: #fff;
+            color: #333;
+            border-radius: 20px;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .score-board {
+            font-size: 20px;
+            color: yellow;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .quiz-question {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .quiz-options button {
+            background-color: #6a11cb;
+            border: none;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+            text-align: center;
+        }
+
+        .quiz-options button:hover {
+            background-color: #2575fc;
+            transform: scale(1.05);
+        }
+
+        .quiz-options button.correct {
+            background-color: #28a745; /* Hijau untuk jawaban benar */
+        }
+
+        .quiz-options button.wrong {
+            background-color: #dc3545; /* Merah untuk jawaban salah */
+        }
+
+        .result {
+            display: none;
+            font-size: 24px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        #next {
+            display: none;
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        #next:hover {
+            background-color: #e67e22;
+        }
+
+        .end-buttons {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .end-buttons button {
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 10px;
+        }
+
+        .end-buttons button:hover {
+            background-color: #e67e22;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-options {
+                grid-template-columns: 1fr; /* Kolom tunggal untuk layar kecil */
+            }
+
+            .quiz-options button {
+                padding: 15px; /* Sesuaikan padding agar pas di layar kecil */
+                font-size: 16px; /* Kurangi ukuran font agar lebih pas */
+            }
+
+            .quiz-container {
+                width: 90%; /* Perbesar kontainer sedikit di layar kecil */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="score-board">Skor: <span id="score">0</span></div>
+
+    <div class="quiz-container">
+        <div id="quiz">
+            <div class="quiz-question" id="question">Pertanyaan akan muncul di sini</div>
+            <div class="quiz-options">
+                <button class="option" onclick="checkAnswer(0)">Pilihan 1</button>
+                <button class="option" onclick="checkAnswer(1)">Pilihan 2</button>
+                <button class="option" onclick="checkAnswer(2)">Pilihan 3</button>
+                <button class="option" onclick="checkAnswer(3)">Pilihan 4</button>
+            </div>
+        </div>
+        <div class="result" id="result"></div>
+        <button id="next" onclick="nextQuestion()">Pertanyaan Berikutnya</button>
+        
+        <div class="end-buttons">
+            <button onclick="restartQuiz()">Mulai Ulang</button>
+            <button onclick="goHome()">Kembali ke Home</button>
+        </div>
+    </div>
+
+    <!-- Suara efek -->
+    <audio id="click-sound" src="mixkit-select-click-1109.wav"></audio>
+    <audio id="point-sound" src="7-Checklist-7.mp3"></audio>
+    <audio id="wrong-sound" src="fail-144746.mp3"></audio>
+    <audio id="background-music" src="happy-clappy-ukulele(chosic.com).mp3" loop></audio>
+
+    <script>
+        // Mulai kuis saat halaman dimuat
+        window.onload = function() {
+            shuffleQuiz(); // Acak soal sebelum mulai
+            loadQuiz();
+            document.getElementById("background-music").play(); // Mainkan musik latar
+        }
+
+        const quizData = [
+    {
+        question: "Apa itu berpikir komputasional?",
+        options: ["Memikirkan cara bermain game", "Cara menyelesaikan masalah secara efisien", "Menonton film", "Mengerjakan soal matematika"],
+        correct: 1
+    },
+    {
+        question: "Langkah pertama dalam berpikir komputasional adalah?",
+        options: ["Abstraksi", "Dekompisi", "Algoritma", "Menyelesaikan masalah"],
+        correct: 1
+    },
+    {
+        question: "Apa itu dekomposisi?",
+        options: ["Membagi masalah besar menjadi bagian kecil", "Menyusun langkah-langkah", "Menghitung angka", "Menggunakan komputer"],
+        correct: 0
+    },
+    {
+        question: "Apa itu pola dalam berpikir komputasional?",
+        options: ["Melihat kejadian yang sering berulang", "Menyusun algoritma", "Menghitung angka", "Menyederhanakan masalah"],
+        correct: 0
+    },
+    {
+        question: "Apa itu abstraksi dalam berpikir komputasional?",
+        options: ["Mengabaikan detail yang tidak penting", "Menghitung angka", "Membuat algoritma", "Menyusun pola"],
+        correct: 0
+    },
+    {
+        question: "Apa itu algoritma?",
+        options: ["Langkah-langkah untuk menyelesaikan masalah", "Menghitung angka", "Membuat gambar", "Menulis cerita"],
+        correct: 0
+    },
+    {
+        question: "Contoh penggunaan algoritma adalah?",
+        options: ["Membuat resep masakan", "Menonton televisi", "Menggambar pemandangan", "Bermain bola"],
+        correct: 0
+    },
+    {
+        question: "Langkah pertama saat menyelesaikan masalah dengan berpikir komputasional adalah?",
+        options: ["Membagi masalah", "Mencari pola", "Menyusun algoritma", "Mengidentifikasi masalah"],
+        correct: 3
+    },
+    {
+        question: "Pola berulang bisa membantu kita untuk?",
+        options: ["Menyelesaikan masalah lebih cepat", "Menjadi lebih pintar", "Bermain game", "Belajar bahasa"],
+        correct: 0
+    },
+    {
+        question: "Berpikir komputasional membantu kita untuk?",
+        options: ["Menyelesaikan masalah sehari-hari", "Bermain komputer", "Menggambar", "Menulis buku"],
+        correct: 0
+    },
+    {
+        question: "Salah satu keuntungan berpikir komputasional adalah?",
+        options: ["Membuat pekerjaan lebih efisien", "Membuat masalah baru", "Membuat komputer", "Menggambar lebih baik"],
+        correct: 0
+    },
+    {
+        question: "Apa yang kita lakukan setelah mengidentifikasi masalah?",
+        options: ["Membagi masalah menjadi lebih kecil", "Mengabaikan masalah", "Menonton film", "Menghitung angka"],
+        correct: 0
+    },
+    {
+        question: "Pola dalam berpikir komputasional membantu kita untuk?",
+        options: ["Mengidentifikasi kejadian yang sering terjadi", "Membagi masalah", "Menyusun langkah-langkah", "Mengabaikan detail"],
+        correct: 0
+    },
+    {
+        question: "Apa yang dimaksud dengan abstraksi dalam berpikir komputasional?",
+        options: ["Mengabaikan detail yang tidak penting", "Menyusun langkah-langkah", "Mencari pola", "Membagi masalah"],
+        correct: 0
+    },
+    {
+        question: "Algoritma adalah?",
+        options: ["Langkah-langkah yang diambil untuk menyelesaikan masalah", "Menggambar pemandangan", "Menulis cerita", "Menyusun pola"],
+        correct: 0
+    },
+    {
+        question: "Salah satu contoh algoritma dalam kehidupan sehari-hari adalah?",
+        options: ["Resep memasak", "Menonton film", "Bermain game", "Membaca buku"],
+        correct: 0
+    },
+    {
+        question: "Apa yang harus dilakukan setelah menyusun algoritma?",
+        options: ["Mengimplementasikan algoritma untuk menyelesaikan masalah", "Menulis buku", "Menggambar", "Belajar bahasa"],
+        correct: 0
+    },
+    {
+        question: "Berpikir komputasional dapat membantu kita dalam?",
+        options: ["Menyelesaikan berbagai masalah dengan cara efisien", "Menggambar", "Menulis cerita", "Bermain game"],
+        correct: 0
+    },
+    {
+        question: "Apa yang dimaksud dengan dekomposisi dalam berpikir komputasional?",
+        options: ["Membagi masalah besar menjadi bagian-bagian kecil", "Menyusun algoritma", "Mencari pola", "Mengabaikan detail"],
+        correct: 0
+    },
+    {
+        question: "Apa yang harus dilakukan setelah membagi masalah?",
+        options: ["Mencari pola", "Menulis cerita", "Menggambar", "Bermain game"],
+        correct: 0
+    },
+    {
+        question: "Abstraksi membantu kita untuk?",
+        options: ["Mengabaikan detail yang tidak relevan", "Membagi masalah", "Mencari pola", "Menyusun langkah-langkah"],
+        correct: 0
+    },
+    {
+        question: "Langkah terakhir dalam berpikir komputasional adalah?",
+        options: ["Implementasi algoritma", "Membagi masalah", "Mencari pola", "Menyusun langkah-langkah"],
+        correct: 0
+    },
+];
+
+        let shuffledQuizData = [];
+        let currentQuestion = 0;
+        let score = 0;
+
+        function shuffleQuiz() {
+            shuffledQuizData = quizData.sort(() => Math.random() - 0.5);
+        }
+
+        function loadQuiz() {
+            const questionElement = document.getElementById("question");
+            const options = document.querySelectorAll(".option");
+
+            questionElement.textContent = shuffledQuizData[currentQuestion].question;
+            options.forEach((option, index) => {
+                option.textContent = shuffledQuizData[currentQuestion].options[index];
+                option.classList.remove("correct", "wrong");
+                option.disabled = false;
+            });
+
+            document.getElementById("result").style.display = "none";
+            document.getElementById("next").style.display = "none";
+        }
+
+        function checkAnswer(selected) {
+            const options = document.querySelectorAll(".option");
+            const correctAnswer = shuffledQuizData[currentQuestion].correct;
+
+            // Mainkan suara klik
+            document.getElementById("click-sound").play();
+
+            if (selected === correctAnswer) {
+                options[selected].classList.add("correct");
+                score += 100; // Tambah 100 poin untuk jawaban benar
+                document.getElementById("score").textContent = score; // Tampilkan skor
+
+                // Mainkan suara poin jika benar
+                document.getElementById("point-sound").play();
+            } else {
+                options[selected].classList.add("wrong");
+                options[correctAnswer].classList.add("correct");
+
+                // Mainkan suara salah jika salah
+                document.getElementById("wrong-sound").play();
+            }
+
+            options.forEach(option => {
+                option.disabled = true;
+            });
+
+            document.getElementById("result").style.display = "block";
+            document.getElementById("result").textContent = 
+                selected === correctAnswer ? "Benar!" : "Salah!";
+            document.getElementById("next").style.display = "inline-block";
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < shuffledQuizData.length) {
+                loadQuiz();
+            } else {
+                showFinalResult();
+            }
+        }
+
+        function showFinalResult() {
+            document.getElementById("quiz").style.display = "none";
+            document.getElementById("result").style.display = "block";
+            document.getElementById("result").textContent = `Kuis selesai! Skor akhir kamu: ${score}`;
+            document.getElementById("next").style.display = "none";
+            document.querySelector(".end-buttons").style.display = "block";
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            document.getElementById("score").textContent = score;
+            document.getElementById("quiz").style.display = "block";
+            document.querySelector(".end-buttons").style.display = "none";
+            shuffleQuiz(); // Acak ulang soal
+            loadQuiz();
+        }
+
+        function goHome() {
+        window.location.href = "index2.html"; // Mengarahkan ke halaman index2.html
+    }
+
+    </script>
+</body>
+</html>
