@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Interaktif</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradasi warna biru dan ungu */
+            color: white;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .quiz-container {
+            background-color: #fff;
+            color: #333;
+            border-radius: 20px;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .score-board {
+            font-size: 20px;
+            color: yellow;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .quiz-question {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .quiz-options button {
+            background-color: #6a11cb;
+            border: none;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+            text-align: center;
+        }
+
+        .quiz-options button:hover {
+            background-color: #2575fc;
+            transform: scale(1.05);
+        }
+
+        .quiz-options button.correct {
+            background-color: #28a745; /* Hijau untuk jawaban benar */
+        }
+
+        .quiz-options button.wrong {
+            background-color: #dc3545; /* Merah untuk jawaban salah */
+        }
+
+        .result {
+            display: none;
+            font-size: 24px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        #next {
+            display: none;
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        #next:hover {
+            background-color: #e67e22;
+        }
+
+        .end-buttons {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .end-buttons button {
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 10px;
+        }
+
+        .end-buttons button:hover {
+            background-color: #e67e22;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="score-board">Skor: <span id="score">0</span></div>
+
+    <div class="quiz-container">
+        <div id="quiz">
+            <div class="quiz-question" id="question">Pertanyaan akan muncul di sini</div>
+            <div class="quiz-options">
+                <button class="option" onclick="checkAnswer(0)">Pilihan 1</button>
+                <button class="option" onclick="checkAnswer(1)">Pilihan 2</button>
+                <button class="option" onclick="checkAnswer(2)">Pilihan 3</button>
+                <button class="option" onclick="checkAnswer(3)">Pilihan 4</button>
+            </div>
+        </div>
+        <div class="result" id="result"></div>
+        <button id="next" onclick="nextQuestion()">Pertanyaan Berikutnya</button>
+        
+        <div class="end-buttons">
+            <button onclick="restartQuiz()">Mulai Ulang</button>
+            <button onclick="goHome()">Kembali ke Home</button>
+        </div>
+    </div>
+
+    <!-- Suara efek -->
+    <audio id="click-sound" src="click.mp3"></audio>
+    <audio id="point-sound" src="point.mp3"></audio>
+
+    <script>
+        const quizData = [
+            {
+                question: "Apa ibukota Indonesia?",
+                options: ["Bandung", "Jakarta", "Surabaya", "Yogyakarta"],
+                correct: 1
+            },
+            {
+                question: "Siapa penemu lampu pijar?",
+                options: ["Nikola Tesla", "Thomas Edison", "Albert Einstein", "Isaac Newton"],
+                correct: 1
+            },
+            {
+                question: "Planet terbesar dalam tata surya?",
+                options: ["Bumi", "Mars", "Jupiter", "Venus"],
+                correct: 2
+            },
+            {
+                question: "Berapa hasil dari 3 + 5?",
+                options: ["7", "8", "9", "10"],
+                correct: 1
+            }
+        ];
+
+        let shuffledQuizData = [];
+        let currentQuestion = 0;
+        let score = 0;
+
+        function shuffleQuiz() {
+            shuffledQuizData = quizData.sort(() => Math.random() - 0.5);
+        }
+
+        function loadQuiz() {
+            const questionElement = document.getElementById("question");
+            const options = document.querySelectorAll(".option");
+
+            questionElement.textContent = shuffledQuizData[currentQuestion].question;
+            options.forEach((option, index) => {
+                option.textContent = shuffledQuizData[currentQuestion].options[index];
+                option.classList.remove("correct", "wrong");
+                option.disabled = false;
+            });
+
+            document.getElementById("result").style.display = "none";
+            document.getElementById("next").style.display = "none";
+        }
+
+        function checkAnswer(selected) {
+            const options = document.querySelectorAll(".option");
+            const correctAnswer = shuffledQuizData[currentQuestion].correct;
+
+            // Mainkan suara klik
+            document.getElementById("click-sound").play();
+
+            if (selected === correctAnswer) {
+                options[selected].classList.add("correct");
+                score += 100; // Tambah 100 poin untuk jawaban benar
+                document.getElementById("score").textContent = score; // Tampilkan skor
+
+                // Mainkan suara poin jika benar
+                document.getElementById("point-sound").play();
+            } else {
+                options[selected].classList.add("wrong");
+                options[correctAnswer].classList.add("correct");
+            }
+
+            options.forEach(option => {
+                option.disabled = true;
+            });
+
+            document.getElementById("result").style.display = "block";
+            document.getElementById("result").textContent = 
+                selected === correctAnswer ? "Benar!" : "Salah!";
+            document.getElementById("next").style.display = "inline-block";
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < shuffledQuizData.length) {
+                loadQuiz();
+            } else {
+                showFinalResult();
+            }
+        }
+
+        function showFinalResult() {
+            document.getElementById("quiz").style.display = "none";
+            document.getElementById("result").style.display = "block";
+            document.getElementById("result").textContent = `Kuis selesai! Skor akhir kamu: ${score}`;
+            document.getElementById("next").style.display = "none";
+            document.querySelector(".end-buttons").style.display = "block";
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            document.getElementById("score").textContent = score;
+            document.getElementById("quiz").style.display = "block";
+            document.querySelector(".end-buttons").style.display = "none";
+            shuffleQuiz(); // Acak ulang soal
+            loadQuiz();
+        }
+
+        function goHome() {
+            window.location.href = "index.html"; // Ganti dengan halaman home yang sesuai
+        }
+
+        // Mulai kuis saat halaman dimuat
+        window.onload = function() {
+            shuffleQuiz(); // Acak soal sebelum mulai
+            loadQuiz();
+        };
+    </script>
+</body>
+</html>
