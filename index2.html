@@ -302,7 +302,14 @@
         <a href="tugas.html"><i class="fas fa-calendar-alt"></i></a>
         <a href="https://wa.me/6285890599794"><i class="fas fa-comments"></i></a> <!-- Ganti nomor WhatsApp sesuai kebutuhan -->
     </footer>
-
+<audio autoplay muted id="background-audio">
+        <source src="opening.mpeg" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        // Aktifkan suara setelah halaman dimuat
+        document.getElementById('background-audio').muted = false;
+    </script>
     <script>
         let currentIndex = 0;
         const slides = document.querySelectorAll('.slide');
